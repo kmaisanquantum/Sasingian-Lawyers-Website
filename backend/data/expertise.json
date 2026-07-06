@@ -1,0 +1,16 @@
+{
+  "coreServices": [
+    { "id": "svc-01", "index": "01", "title": "Advisory & Corporate Law" },
+    { "id": "svc-02", "index": "02", "title": "Disputes & Commercial Litigation" },
+    { "id": "svc-03", "index": "03", "title": "Projects & Infrastructure" },
+    { "id": "svc-04", "index": "04", "title": "Regulatory Compliance" },
+    { "id": "svc-05", "index": "05", "title": "Criminal & Public Prosecutions" }
+  ],
+  "sectors": [
+    { "id": "sec-a", "label": "Sector A", "title": "Public Sector & Government Agencies" },
+    { "id": "sec-b", "label": "Sector B", "title": "Mining, Energy & Critical Minerals" },
+    { "id": "sec-c", "label": "Sector C", "title": "Banking & Financial Services" },
+    { "id": "sec-d", "label": "Sector D", "title": "AgriTech & Rural Development" },
+    { "id": "sec-e", "label": "Sector E", "title": "Digital Economy & Cybersecurity" }
+  ]
+}

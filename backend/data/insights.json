@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ins-mining-act",
+    "category": "Resource Sector",
+    "act": "Mining Act",
+    "title": "What the amended licensing framework means for exploration permits",
+    "summary": "Compliance timelines for operators in the Highlands and Western Province.",
+    "date": "2026-05-18"
+  },
+  {
+    "id": "ins-pfma",
+    "category": "Public Law",
+    "act": "Public Finance Mgmt Act",
+    "title": "Procurement obligations for statutory authorities, explained",
+    "summary": "A practical guide for agency counsel and finance officers.",
+    "date": "2026-04-22"
+  },
+  {
+    "id": "ins-companies-act",
+    "category": "Advisory",
+    "act": "Companies Act",
+    "title": "Director duties under continued scrutiny in PNG corporate governance",
+    "summary": "Structuring guidance for boards operating across NCD and the provinces.",
+    "date": "2026-03-11"
+  },
+  {
+    "id": "ins-court-rules",
+    "category": "Disputes",
+    "act": "National Court Rules",
+    "title": "Case management changes affecting commercial litigation timelines",
+    "summary": "What claimants and respondents should expect at first mention.",
+    "date": "2026-02-27"
+  },
+  {
+    "id": "ins-cyber-bill",
+    "category": "Resource Sector",
+    "act": "Cybersecurity Bill",
+    "title": "Data-breach notification duties for the digital economy sector",
+    "summary": "Preparing compliance programs ahead of enactment.",
+    "date": "2026-01-30"
+  }
+]

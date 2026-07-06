@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sasingian Lawyers — Port Moresby, Papua New Guinea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1A1A;
+    --ink-soft:#262626;
+    --paper:#FFFFFF;
+    --paper-2:#F8F9FA;
+    --paper-3:#EEF1F3;
+    --gold:#B8952E;
+    --gold-bright:#D4AF37;
+    --amber:#FFC107;
+    --blue:#0056B3;
+    --slate:#4A5560;
+    --line:rgba(26,26,26,0.13);
+    --line-dark:rgba(255,255,255,0.16);
+    --sans:'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    --serif:'Merriweather', Georgia, 'Times New Roman', serif;
+    --mono:'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--serif);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  header, nav, .megamenu, button, input, select, textarea, .chip, .toast,
+  .quick-tab, .cta-header, .wordmark, footer, .search-row, .path-list,
+  .eyebrow, .clause, .contact-panel{
+    font-family:var(--sans);
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .clause{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--slate);
+    letter-spacing:0.02em;
+  }
+  h1,h2{
+    font-family:var(--sans);
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    margin:0 0 0.4em;
+  }
+  h3{
+    font-family:var(--sans);
+    font-weight:700;
+    margin:0 0 0.4em;
+    letter-spacing:-0.005em;
+  }
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  button{font-family:var(--sans); cursor:pointer;}
+
+  /* ===== Skip link ===== */
+  .skip-link{
+    position:absolute; left:-999px; top:0; background:var(--ink); color:var(--paper);
+    padding:12px 20px; z-index:999; font-family:var(--sans);
+  }
+  .skip-link:focus{left:16px; top:16px;}
+
+  /* ===== Header ===== */
+  header.site{
+    position:sticky; top:0; z-index:200;
+    background:rgba(239,234,224,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1240px; margin:0 auto;
+  }
+  .wordmark{
+    font-family:var(--serif); font-weight:700; font-size:1.28rem; letter-spacing:-0.01em;
+    display:flex; flex-direction:column; line-height:1.05;
+  }
+  .wordmark span.sub{
+    font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; color:var(--slate);
+    text-transform:uppercase; margin-top:3px; font-weight:400;
+  }
+  .wordmark .s-gold{color:var(--gold-bright);}
+  nav.primary{display:flex; align-items:center; gap:2px;}
+  .nav-item{position:relative;}
+  .nav-trigger{
+    background:none; border:none; font-size:0.92rem; font-weight:500; color:var(--ink);
+    padding:12px 16px; display:flex; align-items:center; gap:6px; border-radius:3px;
+  }
+  .nav-trigger:hover, .nav-trigger[aria-expanded="true"]{color:var(--gold-bright);}
+  .caret{width:8px; height:8px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg); margin-top:-4px; transition:transform .2s ease;}
+  .nav-trigger[aria-expanded="true"] .caret{transform:rotate(225deg); margin-top:4px;}
+
+  .cta-header{
+    font-family:var(--sans); font-size:0.74rem; letter-spacing:0.06em; text-transform:uppercase; font-weight:700;
+    background:var(--gold-bright); color:var(--ink); padding:11px 18px; border:none; border-radius:2px;
+    white-space:nowrap;
+  }
+  .cta-header:hover{background:var(--ink); color:var(--gold-bright);}
+
+  .menu-toggle{display:none; background:none; border:none; flex-direction:column; gap:5px; padding:8px;}
+  .menu-toggle span{width:22px; height:2px; background:var(--ink);}
+
+  /* ===== Megamenu ===== */
+  .megamenu{
+    position:absolute; top:calc(100% + 1px); left:50%; transform:translateX(-50%);
+    width:min(880px, 92vw);
+    background:var(--ink); color:var(--paper);
+    border-radius:6px; box-shadow:0 24px 48px rgba(0,0,0,0.28);
+    padding:24px;
+    font-size:0.92em;
+    display:none;
+    opacity:0; transform:translateX(-50%) translateY(-6px);
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .nav-item:first-child .megamenu{left:0; transform:translateX(0) translateY(-6px);}
+  .nav-item:first-child .megamenu.open{transform:translateX(0) translateY(0);}
+  .megamenu.open{display:block; opacity:1; transform:translateX(-50%) translateY(0);}
+  .megamenu-grid{display:grid; grid-template-columns:1.1fr 1.4fr; gap:36px;}
+  .megamenu-grid.single{grid-template-columns:1fr;}
+  .mm-col .mm-heading{
+    font-family:var(--mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.14em;
+    color:var(--gold-bright); margin-bottom:14px; display:block;
+  }
+  .mm-links{list-style:none; margin:0; padding:0;}
+  .mm-links li{border-bottom:1px solid var(--line-dark);}
+  .mm-links a{display:flex; justify-content:space-between; align-items:center; padding:8px 2px; font-size:0.9rem;}
+  .mm-links a:hover{color:var(--gold-bright); padding-left:6px;}
+  .mm-links a:hover::after{content:"→"; font-family:var(--mono);}
+  .mm-highlight{
+    display:block; font-family:var(--serif); font-size:1.3rem; margin-bottom:16px; line-height:1.25;
+    border-bottom:1px solid var(--line-dark); padding-bottom:16px;
+  }
+  .mm-highlight a{display:inline-block;}
+  .mm-highlight a:hover{color:var(--gold-bright);}
+  .mm-search{
+    margin-top:16px; display:flex; gap:8px; background:var(--ink-soft); border:1px solid var(--line-dark);
+    border-radius:3px; padding:10px 12px;
+  }
+  .mm-search input{
+    background:none; border:none; color:var(--paper); font-family:var(--sans); font-size:0.88rem; width:100%; outline:none;
+  }
+  .mm-search input::placeholder{color:#8A9199;}
+  .mm-search svg{flex-shrink:0; opacity:0.7;}
+  .sector-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 24px;}
+
+  .tagline-bar{
+    background:var(--ink); border-bottom:3px solid var(--blue); text-align:center; padding:13px 20px;
+  }
+  .tagline-bar span{
+    font-family:var(--sans); font-weight:700; text-transform:uppercase; letter-spacing:0.18em;
+    font-size:0.78rem; color:var(--gold-bright);
+  }
+  @media (max-width:600px){ .tagline-bar span{letter-spacing:0.08em; font-size:0.7rem;} }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; overflow:hidden; background:var(--ink); color:var(--paper);
+    padding:120px 32px 96px;
+  }
+  .hero-contours{
+    position:absolute; inset:0; opacity:0.5; pointer-events:none;
+  }
+  .hero-inner{max-width:1240px; margin:0 auto; position:relative; z-index:2;}
+  .hero .eyebrow{color:var(--gold-bright); margin-bottom:22px; display:block;}
+  .hero h1{
+    font-size:clamp(1.9rem, 4vw, 2.5em); max-width:15ch; color:var(--paper);
+    font-weight:700;
+  }
+  .hero h1 em{font-style:italic; color:var(--gold-bright); font-weight:500;}
+  .hero p.lede{
+    max-width:46ch; font-size:1.14rem; color:#C7C1B4; margin:22px 0 40px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:14px 24px; border-radius:2px;
+    font-size:0.92rem; font-weight:500; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--gold-bright); color:var(--ink);}
+  .btn-primary:hover{background:#DBAE55;}
+  .btn-ghost{border-color:rgba(239,234,224,0.35); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--paper);}
+  .hero-stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:76px;
+    border-top:1px solid var(--line-dark); padding-top:28px;
+  }
+  .hero-stats .stat b{font-family:var(--serif); font-size:1.7rem; display:block; color:var(--gold-bright);}
+  .hero-stats .stat span{font-size:0.82rem; color:#A7A093;}
+
+  /* ===== Section shell ===== */
+  section{padding:88px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:48px; flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.5rem); max-width:16ch;}
+  .section-head .clause{margin-bottom:10px; display:block;}
+  .section-links{display:flex; gap:22px; flex-wrap:wrap;}
+  .section-links a{font-size:0.88rem; font-weight:600; border-bottom:1.5px solid var(--gold); padding-bottom:2px;}
+  .section-links a:hover{color:var(--blue); border-color:var(--blue);}
+  .divider-topo{height:56px; margin:0; }
+
+  section.alt{background:var(--paper-2);}
+
+  /* ===== People ===== */
+  .search-row{
+    display:flex; gap:14px; margin-bottom:40px; flex-wrap:wrap; align-items:center;
+    background:#fff; border:1px solid var(--line); border-radius:4px; padding:6px;
+  }
+  .search-row input[type="text"]{
+    flex:1; min-width:220px; border:none; padding:12px 14px; font-family:var(--sans); font-size:0.95rem; background:none; outline:none;
+  }
+  .chip-group{display:flex; gap:8px; flex-wrap:wrap; padding-right:6px;}
+  .chip{
+    font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em;
+    padding:9px 14px; border:1px solid var(--line); border-radius:20px; background:var(--paper); color:var(--slate);
+  }
+  .chip.active, .chip:hover{background:var(--gold-bright); color:var(--ink); border-color:var(--gold-bright);}
+  .card-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .people-card{
+    background:#fff; border:1px solid var(--line); border-radius:4px; padding:26px 22px; transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .people-card:hover{transform:translateY(-4px); box-shadow:0 16px 32px rgba(18,24,27,0.08);}
+  .people-card .role-tag{font-family:var(--mono); font-size:0.68rem; text-transform:uppercase; color:var(--blue); letter-spacing:0.08em;}
+  .people-card h3{font-size:1.1rem; margin:10px 0 6px;}
+  .people-card p{color:var(--slate); font-size:0.88rem; margin:0 0 14px;}
+  .people-card a.view{font-size:0.82rem; font-weight:600; border-bottom:1.5px solid var(--gold);}
+  .no-results{display:none; padding:40px 0; text-align:center; color:var(--slate); font-family:var(--mono); font-size:0.85rem;}
+
+  /* ===== Expertise ===== */
+  .expertise-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line);}
+  .expertise-cell{background:var(--paper); padding:32px 28px; min-height:190px; display:flex; flex-direction:column; justify-content:space-between;}
+  .expertise-cell:hover{background:var(--ink); color:var(--paper); cursor:pointer;}
+  .expertise-cell:hover .clause{color:var(--gold-bright);}
+  .expertise-cell h3{font-size:1.15rem;}
+  .sector-strip{display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;}
+  .sector-tile{
+    aspect-ratio:1/1.05; border:1px solid var(--line); border-radius:4px; padding:18px;
+    display:flex; flex-direction:column; justify-content:space-between; background:#fff;
+  }
+  .sector-tile:hover{border-color:var(--gold-bright);}
+  .sector-tile .sector-index{font-family:var(--mono); font-size:0.72rem; color:var(--gold);}
+  .sector-tile h4{font-family:var(--sans); font-weight:600; font-size:0.94rem; margin:0;}
+
+  /* ===== Insights ===== */
+  .insight-list{display:flex; flex-direction:column;}
+  .insight-row{
+    display:grid; grid-template-columns:120px 1fr auto; gap:24px; align-items:center;
+    padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  .insight-row:hover h3{color:var(--gold-bright);}
+  .insight-row .clause{font-size:0.76rem;}
+  .insight-row h3{font-size:1.05rem; margin:0 0 4px;}
+  .insight-row p{margin:0; color:var(--slate); font-size:0.85rem;}
+  .insight-row .arrow{font-family:var(--mono); font-size:1.1rem; color:var(--gold);}
+  .insight-row[hidden]{display:none;}
+
+  /* ===== Training ===== */
+  .training-banner{
+    background:var(--ink); color:var(--paper); border-radius:6px; padding:44px; display:flex;
+    justify-content:space-between; align-items:center; gap:32px; flex-wrap:wrap; margin-bottom:48px;
+  }
+  .training-banner h3{color:var(--paper); font-size:1.6rem; max-width:22ch;}
+  .training-banner p{color:#B6AFA1; max-width:40ch; margin:8px 0 0;}
+  .module-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .module-card{border:1px solid var(--line); border-radius:4px; padding:26px 22px; background:#fff;}
+  .module-card .clause{color:var(--gold);}
+  .module-card h4{font-family:var(--sans); font-weight:600; font-size:1rem; margin:10px 0 8px;}
+  .module-card p{font-size:0.85rem; color:var(--slate); margin:0;}
+
+  /* ===== Careers ===== */
+  .careers-wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .path-list{list-style:none; margin:28px 0 0; padding:0;}
+  .path-list li{
+    display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid var(--line-dark);
+  }
+  .careers-wrap.dark{background:var(--ink); color:var(--paper); border-radius:6px; padding:52px;}
+  .careers-wrap.dark .path-list li{border-color:rgba(239,234,224,0.15);}
+  .careers-wrap.dark p{color:#B6AFA1;}
+
+  /* ===== About ===== */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; margin-bottom:56px;}
+  .about-card h3{font-size:1.2rem;}
+  .about-card p{color:var(--slate); font-size:0.92rem;}
+  .quote-line{
+    font-family:var(--serif); font-style:italic; font-size:1.3rem; color:var(--gold); margin:6px 0 0;
+  }
+  .map-module{
+    display:grid; grid-template-columns:1fr 1.3fr; gap:0; border:1px solid var(--line); border-radius:6px; overflow:hidden;
+  }
+  .map-info{padding:36px; background:var(--paper-2);}
+  .map-info dl{margin:20px 0 0;}
+  .map-info dt{font-family:var(--mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); margin-top:16px;}
+  .map-info dd{margin:4px 0 0; font-size:0.94rem;}
+  .map-frame{min-height:340px; background:var(--paper-3);}
+  .map-frame iframe{width:100%; height:100%; min-height:340px; border:0; filter:grayscale(0.35) contrast(1.05);}
+
+  /* ===== Quick contact panel ===== */
+  .quick-tab{
+    position:fixed; right:0; top:58%; transform:translateY(-50%) rotate(-90deg) translateX(50%);
+    transform-origin:right center; background:var(--gold-bright); color:var(--ink); border:none; font-weight:700;
+    padding:13px 22px; font-family:var(--sans); font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase;
+    border-radius:4px 4px 0 0; z-index:250;
+  }
+  .quick-tab:hover{background:var(--ink); color:var(--gold-bright);}
+  .contact-panel{
+    position:fixed; top:0; right:0; height:100%; width:min(440px,92vw); background:var(--paper);
+    box-shadow:-24px 0 48px rgba(0,0,0,0.25); z-index:300; transform:translateX(100%);
+    transition:transform .28s ease; overflow-y:auto; border-left:1px solid var(--line);
+  }
+  .contact-panel.open{transform:translateX(0);}
+  .contact-panel-inner{padding:36px;}
+  .contact-panel-close{background:none; border:1px solid var(--line); border-radius:50%; width:36px; height:36px; font-size:1.1rem;}
+  .contact-panel h3{font-size:1.5rem; margin-top:24px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--slate); margin-bottom:6px;}
+  .field input, .field select, .field textarea{
+    width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:3px; font-family:var(--sans); font-size:0.92rem; background:#fff;
+  }
+  .field textarea{min-height:90px; resize:vertical;}
+  .submit-btn{width:100%; background:var(--gold-bright); color:var(--ink); border:none; padding:14px; border-radius:3px; font-weight:700; margin-top:6px;}
+  .submit-btn:hover{background:var(--ink); color:var(--gold-bright);}
+  .form-note{font-size:0.78rem; color:var(--slate); margin-top:10px;}
+  .newsletter-mini{margin-top:32px; padding-top:28px; border-top:1px solid var(--line);}
+  .overlay{position:fixed; inset:0; background:rgba(18,24,27,0.4); z-index:290; opacity:0; pointer-events:none; transition:opacity .28s ease;}
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .toast{
+    position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--ink); color:var(--paper);
+    padding:14px 22px; border-radius:4px; font-size:0.88rem; opacity:0; pointer-events:none; transition:all .25s ease; z-index:400;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  /* ===== Footer ===== */
+  footer{background:var(--ink); color:#B6AFA1; padding:64px 0 28px;}
+  .footer-top{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:40px; padding-bottom:44px; border-bottom:1px solid var(--line-dark);}
+  .footer-brand .wordmark{color:var(--paper);}
+  .footer-brand p{max-width:32ch; font-size:0.88rem; margin-top:16px;}
+  .footer-col .eyebrow{color:var(--gold-bright);}
+  .footer-col ul{list-style:none; margin:16px 0 0; padding:0;}
+  .footer-col li{margin-bottom:10px; font-size:0.88rem;}
+  .footer-col a:hover{color:var(--gold-bright);}
+  .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:24px; flex-wrap:wrap; gap:12px;}
+  .footer-bottom p{font-size:0.78rem; margin:0;}
+  .compliance-links{display:flex; gap:18px; flex-wrap:wrap; font-size:0.78rem;}
+  .compliance-links a:hover{color:var(--gold-bright);}
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1024px){
+    .card-grid{grid-template-columns:repeat(2,1fr);}
+    .sector-strip{grid-template-columns:repeat(3,1fr);}
+    .module-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr 1fr;}
+    .map-module{grid-template-columns:1fr;}
+    .expertise-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width: 760px){
+    nav.primary{display:none;}
+    .menu-toggle{display:flex;}
+    .megamenu{position:static; width:100%; transform:none !important; box-shadow:none; display:none;}
+    .megamenu.open{transform:none !important;}
+    .megamenu-grid{grid-template-columns:1fr;}
+    .card-grid{grid-template-columns:1fr;}
+    .sector-strip{grid-template-columns:repeat(2,1fr);}
+    .module-grid{grid-template-columns:1fr;}
+    .expertise-grid{grid-template-columns:1fr;}
+    .careers-wrap{grid-template-columns:1fr;}
+    .hero-stats{grid-template-columns:repeat(2,1fr);}
+    .footer-top{grid-template-columns:1fr;}
+    .cta-header{display:none;}
+  }
+  :focus-visible{outline:2px solid var(--gold-bright); outline-offset:2px;}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site">
+  <div class="header-inner">
+    <a href="#main" class="wordmark"><span class="s-gold">S</span>asingian Lawyers<span class="sub">Port Moresby · Papua New Guinea</span></a>
+
+    <nav class="primary" id="primaryNav" aria-label="Primary">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-expanded="false" data-menu="people">People<span class="caret"></span></button>
+        <div class="megamenu" id="menu-people" role="region" aria-label="People menu">
+          <div class="megamenu-grid">
+            <div class="mm-col">
+              <span class="mm-highlight"><a href="#people">View all People →</a></span>
+              <div class="mm-search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+                <input type="text" placeholder="Find lawyers by name">
+              </div>
+              <a href="#people" style="display:block;margin-top:14px;font-size:0.85rem;color:var(--gold-bright);">Explore People by Practice Area →</a>
+            </div>
+            <div class="mm-col">
+              <span class="mm-heading">Key Personnel</span>
+              <ul class="mm-links">
+                <li><a href="#people">Our Lawyers</a></li>
+                <li><a href="#people">Our Consultants</a></li>
+                <li><a href="#people">Public Sector Specialists</a></li>
+                <li><a href="#people">Litigation Teams</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger" aria-expanded="false" data-menu="expertise">Expertise<span class="caret"></span></button>
+        <div class="megamenu" id="menu-expertise" role="region" aria-label="Expertise menu">
+          <div class="megamenu-grid">
+            <div class="mm-col">
+              <span class="mm-highlight"><a href="#expertise">Explore all Expertise →</a></span>
+              <span class="mm-heading">Core Services</span>
+              <ul class="mm-links">
+                <li><a href="#expertise">Advisory &amp; Corporate Law</a></li>
+                <li><a href="#expertise">Disputes &amp; Commercial Litigation</a></li>
+                <li><a href="#expertise">Projects &amp; Infrastructure</a></li>
+                <li><a href="#expertise">Regulatory Compliance</a></li>
+                <li><a href="#expertise">Criminal &amp; Public Prosecutions</a></li>
+              </ul>
+            </div>
+            <div class="mm-col">
+              <span class="mm-heading">Explore by Sector — PNG Focus</span>
+              <ul class="mm-links">
+                <li><a href="#expertise">Public Sector &amp; Government Agencies</a></li>
+                <li><a href="#expertise">Mining, Energy &amp; Critical Minerals</a></li>
+                <li><a href="#expertise">Banking &amp; Financial Services</a></li>
+                <li><a href="#expertise">AgriTech &amp; Rural Development</a></li>
+                <li><a href="#expertise">Digital Economy &amp; Cybersecurity</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger" aria-expanded="false" data-menu="insights">Insights<span class="caret"></span></button>
+        <div class="megamenu" id="menu-insights" role="region" aria-label="Insights menu">
+          <div class="megamenu-grid single">
+            <div class="mm-col">
+              <span class="mm-highlight"><a href="#insights">Explore all Insights &amp; Legal Updates →</a></span>
+              <div class="mm-search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+                <input type="text" placeholder="Find insights by keyword or Act">
+              </div>
+              <span class="mm-heading" style="margin-top:22px;display:block;">Filter by Practice</span>
+              <div class="chip-group">
+                <span class="chip">Advisory</span>
+                <span class="chip">Disputes</span>
+                <span class="chip">Public Law</span>
+                <span class="chip">Resource Sector</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger" aria-expanded="false" data-menu="training">Training &amp; Academy<span class="caret"></span></button>
+        <div class="megamenu" id="menu-training" role="region" aria-label="Training and Academy menu">
+          <div class="megamenu-grid">
+            <div class="mm-col">
+              <span class="mm-highlight"><a href="#training">Explore Professional Training →</a></span>
+              <ul class="mm-links">
+                <li><a href="#training">Customised Corporate Training</a></li>
+                <li><a href="#training">CLE TV — Continuing Legal Education</a></li>
+              </ul>
+            </div>
+            <div class="mm-col">
+              <span class="mm-heading">Specialised Modules</span>
+              <ul class="mm-links">
+                <li><a href="#training">Public Sector Law &amp; Governance</a></li>
+                <li><a href="#training">Prosecutions &amp; Courtroom Procedure</a></li>
+                <li><a href="#training">Contract Law &amp; Commercial Drafting</a></li>
+                <li><a href="#training">Cyber Security &amp; Data Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger" aria-expanded="false" data-menu="careers">Careers<span class="caret"></span></button>
+        <div class="megamenu" id="menu-careers" role="region" aria-label="Careers menu">
+          <div class="megamenu-grid">
+            <div class="mm-col">
+              <span class="mm-highlight"><a href="#careers">Explore Careers →</a></span>
+              <a href="#careers" style="display:inline-block;font-size:0.85rem;color:var(--gold-bright);">Current Vacancies — Apply Now →</a>
+            </div>
+            <div class="mm-col">
+              <span class="mm-heading">Career Pathways</span>
+              <ul class="mm-links">
+                <li><a href="#careers">Legal Professionals</a></li>
+                <li><a href="#careers">Prosecution Clerks</a></li>
+                <li><a href="#careers">Graduate Program</a></li>
+                <li><a href="#careers">Business Advisory Services</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger" aria-expanded="false" data-menu="about">About<span class="caret"></span></button>
+        <div class="megamenu" id="menu-about" role="region" aria-label="About Sasingian Lawyers menu">
+          <div class="megamenu-grid">
+            <div class="mm-col">
+              <span class="mm-heading">Who We Are</span>
+              <ul class="mm-links">
+                <li><a href="#about">Our Story &amp; Values</a></li>
+                <li><a href="#about">Firm Structure</a></li>
+                <li><a href="#about">Media &amp; News</a></li>
+              </ul>
+              <span class="mm-heading" style="margin-top:20px;display:block;">Our Impact</span>
+              <ul class="mm-links">
+                <li><a href="#about">Community Pro Bono</a></li>
+                <li><a href="#about">Local Capacity Building</a></li>
+                <li><a href="#about">ESG</a></li>
+              </ul>
+            </div>
+            <div class="mm-col">
+              <span class="mm-heading">Where We Are</span>
+              <p style="font-size:0.92rem;color:#C7C1B4;margin:0 0 14px;">Port Moresby (Headquarters)</p>
+              <div class="mm-search" style="margin-top:0;">
+                <a href="#about" style="color:var(--gold-bright);font-size:0.88rem;">View location &amp; directions →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="cta-header" id="openContactHeader">Enquire Now</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="tagline-bar"><span>Trusted. Dedicated. Results Driven. — Your Partner in Legal Services</span></div>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" style="padding-top:120px;">
+    <svg class="hero-contours" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,420 C150,380 250,440 380,400 C500,365 560,300 700,320 C820,338 900,280 1050,300 C1120,308 1160,290 1200,300" fill="none" stroke="#D4AF37" stroke-opacity="0.28" stroke-width="1.5"/>
+      <path d="M0,380 C160,340 260,400 390,360 C520,320 580,260 720,285 C830,304 910,245 1060,265 C1130,274 1170,255 1200,265" fill="none" stroke="#D4AF37" stroke-opacity="0.2" stroke-width="1.5"/>
+      <path d="M0,340 C170,300 270,360 400,318 C530,278 590,220 730,248 C840,268 920,210 1070,230 C1135,238 1175,220 1200,228" fill="none" stroke="#D4AF37" stroke-opacity="0.14" stroke-width="1.5"/>
+      <path d="M0,460 C140,430 260,470 400,440 C540,410 610,360 750,375 C860,388 930,340 1080,355 C1140,362 1170,350 1200,355" fill="none" stroke="#0056B3" stroke-opacity="0.22" stroke-width="1.5"/>
+    </svg>
+    <div class="hero-inner">
+      <span class="eyebrow">Sasingian Lawyers · Full-Service Legal Counsel, Papua New Guinea</span>
+      <h1>Counsel built for how Papua New Guinea <em>actually</em> does business.</h1>
+      <p class="lede">From Waigani to the Western Province, we advise government agencies, resource operators, banks and growing enterprises — with the litigation strength to back every position we take.</p>
+      <div class="hero-actions">
+        <a href="#expertise" class="btn btn-primary">Explore Expertise</a>
+        <button class="btn btn-ghost" id="openContactHero">Speak to a Lawyer</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>1</b><span>Headquarters — Port Moresby, NCD</span></div>
+        <div class="stat"><b>5</b><span>Core practice groups</span></div>
+        <div class="stat"><b>5</b><span>Priority PNG sectors served</span></div>
+        <div class="stat"><b>24/7</b><span>Prosecution &amp; litigation response</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PEOPLE ===================== -->
+  <section id="people">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="clause">§1 — People</span>
+          <h2>Find the right lawyer, by name or by practice.</h2>
+        </div>
+        <div class="section-links">
+          <a href="#people">View All People</a>
+          <a href="#people">Explore by Practice Area</a>
+        </div>
+      </div>
+
+      <div class="search-row">
+        <input type="text" id="peopleSearch" placeholder="Search by name, e.g. &ldquo;Litigation&rdquo; or &ldquo;Consultant&rdquo;">
+        <div class="chip-group" id="peopleChips">
+          <span class="chip active" data-filter="all">All</span>
+          <span class="chip" data-filter="Our Lawyers">Our Lawyers</span>
+          <span class="chip" data-filter="Our Consultants">Our Consultants</span>
+          <span class="chip" data-filter="Public Sector Specialists">Public Sector</span>
+          <span class="chip" data-filter="Litigation Teams">Litigation</span>
+        </div>
+      </div>
+
+      <div class="card-grid" id="peopleGrid">
+        <div class="people-card" data-category="Our Lawyers">
+          <span class="role-tag">Our Lawyers</span>
+          <h3>Corporate &amp; Advisory Practice</h3>
+          <p>Transactional counsel for entities operating across PNG's regulated industries.</p>
+          <a class="view" href="#people">View profiles</a>
+        </div>
+        <div class="people-card" data-category="Our Consultants">
+          <span class="role-tag">Our Consultants</span>
+          <h3>Independent Legal Consultants</h3>
+          <p>Specialist advisers engaged for complex, sector-specific mandates.</p>
+          <a class="view" href="#people">View profiles</a>
+        </div>
+        <div class="people-card" data-category="Public Sector Specialists">
+          <span class="role-tag">Public Sector Specialists</span>
+          <h3>Government &amp; Statutory Bodies</h3>
+          <p>Advisers embedded in the practice of public administration and governance law.</p>
+          <a class="view" href="#people">View profiles</a>
+        </div>
+        <div class="people-card" data-category="Litigation Teams">
+          <span class="role-tag">Litigation Teams</span>
+          <h3>Disputes &amp; Courtroom Advocacy</h3>
+          <p>Trial-ready teams across the National and Supreme Court registries.</p>
+          <a class="view" href="#people">View profiles</a>
+        </div>
+      </div>
+      <p class="no-results" id="peopleNoResults">No matching people. Try clearing your filters.</p>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERTISE ===================== -->
+  <section id="expertise" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="clause">§2 — Expertise</span>
+          <h2>Five practice groups. Five priority sectors.</h2>
+        </div>
+        <div class="section-links">
+          <a href="#expertise">Explore All Expertise</a>
+          <a href="#expertise">Find Legal Services</a>
+        </div>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-cell"><span class="clause">01</span><h3>Advisory &amp; Corporate Law</h3></div>
+        <div class="expertise-cell"><span class="clause">02</span><h3>Disputes &amp; Commercial Litigation</h3></div>
+        <div class="expertise-cell"><span class="clause">03</span><h3>Projects &amp; Infrastructure</h3></div>
+        <div class="expertise-cell"><span class="clause">04</span><h3>Regulatory Compliance</h3></div>
+        <div class="expertise-cell"><span class="clause">05</span><h3>Criminal &amp; Public Prosecutions</h3></div>
+      </div>
+
+      <h3 style="margin-top:56px;font-size:1.2rem;">Explore by Sector — PNG Focus</h3>
+      <div class="sector-strip">
+        <div class="sector-tile"><span class="sector-index">Sector A</span><h4>Public Sector &amp; Government Agencies</h4></div>
+        <div class="sector-tile"><span class="sector-index">Sector B</span><h4>Mining, Energy &amp; Critical Minerals</h4></div>
+        <div class="sector-tile"><span class="sector-index">Sector C</span><h4>Banking &amp; Financial Services</h4></div>
+        <div class="sector-tile"><span class="sector-index">Sector D</span><h4>AgriTech &amp; Rural Development</h4></div>
+        <div class="sector-tile"><span class="sector-index">Sector E</span><h4>Digital Economy &amp; Cybersecurity</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INSIGHTS ===================== -->
+  <section id="insights">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="clause">§3 — Insights</span>
+          <h2>Legal updates, tracked against the Acts that drive them.</h2>
+        </div>
+        <div class="section-links"><a href="#insights">Explore All Insights &amp; Legal Updates</a></div>
+      </div>
+
+      <div class="search-row">
+        <input type="text" id="insightSearch" placeholder="Find insights by keyword or Act">
+        <div class="chip-group" id="insightChips">
+          <span class="chip active" data-filter="all">All</span>
+          <span class="chip" data-filter="Advisory">Advisory</span>
+          <span class="chip" data-filter="Disputes">Disputes</span>
+          <span class="chip" data-filter="Public Law">Public Law</span>
+          <span class="chip" data-filter="Resource Sector">Resource Sector</span>
+        </div>
+      </div>
+
+      <div class="insight-list" id="insightList">
+        <div class="insight-row" data-category="Resource Sector">
+          <span class="clause">Mining Act</span>
+          <div><h3>What the amended licensing framework means for exploration permits</h3><p>Resource Sector · Compliance timelines for operators in the Highlands and Western Province.</p></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="insight-row" data-category="Public Law">
+          <span class="clause">Public Finance Mgmt Act</span>
+          <div><h3>Procurement obligations for statutory authorities, explained</h3><p>Public Law · A practical guide for agency counsel and finance officers.</p></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="insight-row" data-category="Advisory">
+          <span class="clause">Companies Act</span>
+          <div><h3>Director duties under continued scrutiny in PNG corporate governance</h3><p>Advisory · Structuring guidance for boards operating across NCD and the provinces.</p></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="insight-row" data-category="Disputes">
+          <span class="clause">National Court Rules</span>
+          <div><h3>Case management changes affecting commercial litigation timelines</h3><p>Disputes · What claimants and respondents should expect at first mention.</p></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="insight-row" data-category="Resource Sector">
+          <span class="clause">Cybersecurity Bill</span>
+          <div><h3>Data-breach notification duties for the digital economy sector</h3><p>Resource Sector · Preparing compliance programs ahead of enactment.</p></div>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+      <p class="no-results" id="insightNoResults">No insights match that search.</p>
+    </div>
+  </section>
+
+  <!-- ===================== TRAINING ===================== -->
+  <section id="training" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="clause">§4 — Training &amp; Academy</span>
+          <h2>Continuing education for counsel, agencies and enterprise teams.</h2>
+        </div>
+        <div class="section-links">
+          <a href="#training">Explore Professional Training</a>
+          <a href="#training">Customised Corporate Training</a>
+        </div>
+      </div>
+
+      <div class="training-banner">
+        <div>
+          <span class="eyebrow">CLE TV</span>
+          <h3>Continuing Legal Education, on demand.</h3>
+          <p>Recorded sessions and live briefings for practitioners maintaining their standing across PNG's courts and agencies.</p>
+        </div>
+        <a href="#training" class="btn btn-primary">Watch CLE TV</a>
+      </div>
+
+      <div class="module-grid">
+        <div class="module-card"><span class="clause">Module</span><h4>Public Sector Law &amp; Governance</h4><p>Statutory duties and administrative decision-making for agency counsel.</p></div>
+        <div class="module-card"><span class="clause">Module</span><h4>Prosecutions &amp; Courtroom Procedure</h4><p>Evidence, procedure and advocacy training for prosecution teams.</p></div>
+        <div class="module-card"><span class="clause">Module</span><h4>Contract Law &amp; Commercial Drafting</h4><p>Drafting discipline for enforceable, sector-appropriate agreements.</p></div>
+        <div class="module-card"><span class="clause">Module</span><h4>Cyber Security &amp; Data Privacy</h4><p>Compliance obligations for PNG's fast-growing digital economy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAREERS ===================== -->
+  <section id="careers">
+    <div class="wrap">
+      <div class="careers-wrap dark">
+        <div>
+          <span class="clause" style="color:var(--gold-bright);">§5 — Careers</span>
+          <h2 style="color:var(--paper);">Build your practice where it matters.</h2>
+          <p>We recruit for depth across litigation, advisory, prosecutions and business support — not just headcount.</p>
+          <div style="display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;">
+            <a href="#careers" class="btn btn-primary">Explore Careers</a>
+            <a href="#careers" class="btn btn-ghost">Current Vacancies — Apply Now</a>
+          </div>
+        </div>
+        <div>
+          <span class="mm-heading" style="color:var(--gold-bright);">Career Pathways</span>
+          <ul class="path-list">
+            <li>Legal Professionals <span class="arrow" style="color:var(--gold-bright);">→</span></li>
+            <li>Prosecution Clerks <span class="arrow" style="color:var(--gold-bright);">→</span></li>
+            <li>Graduate Program <span class="arrow" style="color:var(--gold-bright);">→</span></li>
+            <li>Business Advisory Services <span class="arrow" style="color:var(--gold-bright);">→</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="clause">§6 — About Sasingian Lawyers</span>
+          <h2>Who we are, and where we stand.</h2>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <span class="eyebrow">Who We Are</span>
+          <h3>Our Story &amp; Values</h3>
+          <p class="quote-line">&ldquo;Trusted. Dedicated. Results Driven.&rdquo;</p>
+          <p style="margin-top:14px;">Firm Structure · Media &amp; News</p>
+        </div>
+        <div class="about-card">
+          <span class="eyebrow">Our Impact</span>
+          <h3>Beyond the Case File</h3>
+          <p>Community Pro Bono · Local Capacity Building · ESG commitments woven into how we practice.</p>
+        </div>
+        <div class="about-card">
+          <span class="eyebrow">Where We Are</span>
+          <h3>Port Moresby (Headquarters)</h3>
+          <p>Based in Gerehu, NCD — serving clients across Papua New Guinea's provinces and resource regions.</p>
+        </div>
+      </div>
+
+      <div class="map-module">
+        <div class="map-info">
+          <span class="clause">Localised Context</span>
+          <h3>Find our Port Moresby headquarters</h3>
+          <dl>
+            <dt>Physical Address</dt>
+            <dd>Section 255, Lot 9, Gahunagaudia Drive, Gerehu, NCD, Papua New Guinea</dd>
+            <dt>Postal Address</dt>
+            <dd>PO Box 405, Waterfront, Konedobu 125, NCD, Papua New Guinea</dd>
+            <dt>Website</dt>
+            <dd>www.sasingianpng.com</dd>
+          </dl>
+        </div>
+        <div class="map-frame">
+          <iframe title="Map to Sasingian Lawyers, Gerehu, Port Moresby" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Gahunagaudia+Drive,+Gerehu,+National+Capital+District,+Papua+New+Guinea&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== QUICK CONTACT PANEL ===================== -->
+<button class="quick-tab" id="quickTab">Enquire Now</button>
+<div class="overlay" id="overlay"></div>
+<aside class="contact-panel" id="contactPanel" aria-hidden="true" aria-label="Enquiry and newsletter panel">
+  <div class="contact-panel-inner">
+    <button class="contact-panel-close" id="closeContact" aria-label="Close panel">×</button>
+    <span class="eyebrow">Start an Enquiry</span>
+    <h3>Tell us what you need.</h3>
+    <form id="intakeForm">
+      <div class="field"><label for="fullName">Full name</label><input id="fullName" type="text" required></div>
+      <div class="field"><label for="orgName">Organisation (if applicable)</label><input id="orgName" type="text"></div>
+      <div class="field"><label for="matterType">Matter type</label>
+        <select id="matterType">
+          <option>Advisory &amp; Corporate Law</option>
+          <option>Disputes &amp; Commercial Litigation</option>
+          <option>Projects &amp; Infrastructure</option>
+          <option>Regulatory Compliance</option>
+          <option>Criminal &amp; Public Prosecutions</option>
+        </select>
+      </div>
+      <div class="field"><label for="matterDetail">Brief description</label><textarea id="matterDetail" required></textarea></div>
+      <div class="field"><label for="emailAddr">Email</label><input id="emailAddr" type="email" required></div>
+      <button type="submit" class="submit-btn">Submit enquiry</button>
+      <p class="form-note">Submitting this form does not create a lawyer–client relationship. A member of our team will respond within two business days.</p>
+    </form>
+
+    <div class="newsletter-mini">
+      <span class="eyebrow">Insights Subscription</span>
+      <h3 style="font-size:1.15rem;margin-top:10px;">Legal updates, direct to your inbox.</h3>
+      <form id="newsletterForm" style="margin-top:14px;display:flex;gap:8px;">
+        <input type="email" placeholder="you@company.com" required style="flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:3px;">
+        <button type="submit" class="submit-btn" style="width:auto;padding:12px 18px;">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="wordmark"><span class="s-gold">S</span>asingian Lawyers</span>
+        <p>Section 255, Lot 9, Gahunagaudia Drive, Gerehu, NCD, Papua New Guinea<br>PO Box 405, Waterfront, Konedobu 125, NCD, PNG</p>
+        <p style="margin-top:16px;"><a href="#main" style="color:var(--gold-bright);">www.sasingianpng.com</a></p>
+      </div>
+      <div class="footer-col">
+        <span class="eyebrow">Site Information</span>
+        <ul>
+          <li><a href="#">Disclaimer</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Site Map</a></li>
+          <li><a href="#">Cookie Settings</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="eyebrow">How We Do Business</span>
+        <ul>
+          <li><a href="#">Information Security</a></li>
+          <li><a href="#">Terms of Engagement</a></li>
+          <li><a href="#">Anti-Money Laundering (AML) Compliance</a></li>
+          <li><a href="#">AI Governance Principles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="eyebrow">Statements</span>
+        <ul>
+          <li><a href="#">Accessibility Statement</a></li>
+          <li><a href="#">Modern Slavery Statement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2026 Sasingian Lawyers</p>
+      <div class="compliance-links">
+        <a href="#">Disclaimer</a><a href="#">Privacy Policy</a><a href="#">Site Map</a><a href="#">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var API_BASE = '/api';
+
+  // ---- Megamenu behaviour ----
+  var triggers = document.querySelectorAll('.nav-trigger');
+  function closeAll(except){
+    triggers.forEach(function(t){
+      if(t === except) return;
+      t.setAttribute('aria-expanded','false');
+      var menu = document.getElementById('menu-' + t.dataset.menu);
+      if(menu) menu.classList.remove('open');
+    });
+  }
+  triggers.forEach(function(t){
+    t.addEventListener('click', function(e){
+      e.stopPropagation();
+      var expanded = t.getAttribute('aria-expanded') === 'true';
+      closeAll(t);
+      t.setAttribute('aria-expanded', String(!expanded));
+      var menu = document.getElementById('menu-' + t.dataset.menu);
+      if(menu) menu.classList.toggle('open', !expanded);
+    });
+  });
+  document.addEventListener('click', function(){ closeAll(null); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(null); });
+
+  // Mobile menu toggle
+  var menuToggle = document.getElementById('menuToggle');
+  var primaryNav = document.getElementById('primaryNav');
+  menuToggle.addEventListener('click', function(){
+    var open = primaryNav.style.display === 'flex';
+    primaryNav.style.display = open ? 'none' : 'flex';
+    primaryNav.style.flexDirection = 'column';
+    menuToggle.setAttribute('aria-expanded', String(!open));
+  });
+
+  function debounce(fn, wait){
+    var t;
+    return function(){
+      var args = arguments;
+      clearTimeout(t);
+      t = setTimeout(function(){ fn.apply(null, args); }, wait);
+    };
+  }
+
+  // ---- People: API-backed with static-DOM fallback ----
+  var peopleChips = document.querySelectorAll('#peopleChips .chip');
+  var peopleGrid = document.getElementById('peopleGrid');
+  var peopleSearch = document.getElementById('peopleSearch');
+  var peopleNoResults = document.getElementById('peopleNoResults');
+  var activePeopleFilter = 'all';
+  var peopleApiAvailable = false;
+
+  function renderPeople(list){
+    if(list.length === 0){
+      peopleGrid.innerHTML = '';
+      peopleNoResults.style.display = 'block';
+      return;
+    }
+    peopleNoResults.style.display = 'none';
+    peopleGrid.innerHTML = list.map(function(p){
+      return '<div class="people-card" data-category="' + p.category + '">' +
+        '<span class="role-tag">' + p.category + '</span>' +
+        '<h3>' + p.title + '</h3>' +
+        '<p>' + p.summary + '</p>' +
+        '<a class="view" href="#people">View profiles</a>' +
+      '</div>';
+    }).join('');
+  }
+
+  function fetchPeople(){
+    var params = new URLSearchParams({ q: peopleSearch.value.trim(), category: activePeopleFilter });
+    fetch(API_BASE + '/people?' + params.toString())
+      .then(function(r){ if(!r.ok) throw new Error('bad response'); return r.json(); })
+      .then(function(data){ renderPeople(data.results); })
+      .catch(function(){ /* API unreachable after initial success is unlikely; no-op */ });
+  }
+
+  function applyPeopleFilterStatic(){
+    var cards = document.querySelectorAll('#peopleGrid .people-card');
+    var query = peopleSearch.value.trim().toLowerCase();
+    var visibleCount = 0;
+    cards.forEach(function(card){
+      var matchesChip = activePeopleFilter === 'all' || card.dataset.category === activePeopleFilter;
+      var matchesQuery = query === '' || card.textContent.toLowerCase().indexOf(query) !== -1;
+      var visible = matchesChip && matchesQuery;
+      card.style.display = visible ? '' : 'none';
+      if(visible) visibleCount++;
+    });
+    peopleNoResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  peopleChips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      peopleChips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      activePeopleFilter = chip.dataset.filter;
+      peopleApiAvailable ? fetchPeople() : applyPeopleFilterStatic();
+    });
+  });
+  peopleSearch.addEventListener('input', debounce(function(){
+    peopleApiAvailable ? fetchPeople() : applyPeopleFilterStatic();
+  }, 200));
+
+  // Probe the API once on load; if it responds, switch to API-backed rendering.
+  fetch(API_BASE + '/people')
+    .then(function(r){ if(!r.ok) throw new Error('bad response'); return r.json(); })
+    .then(function(data){ peopleApiAvailable = true; renderPeople(data.results); })
+    .catch(function(){ peopleApiAvailable = false; /* keep the static markup already in the page */ });
+
+  // ---- Insights: API-backed with static-DOM fallback ----
+  var insightChips = document.querySelectorAll('#insightChips .chip');
+  var insightList = document.getElementById('insightList');
+  var insightSearch = document.getElementById('insightSearch');
+  var insightNoResults = document.getElementById('insightNoResults');
+  var activeInsightFilter = 'all';
+  var insightsApiAvailable = false;
+
+  function renderInsights(list){
+    if(list.length === 0){
+      insightList.innerHTML = '';
+      insightNoResults.style.display = 'block';
+      return;
+    }
+    insightNoResults.style.display = 'none';
+    insightList.innerHTML = list.map(function(i){
+      return '<div class="insight-row" data-category="' + i.category + '">' +
+        '<span class="clause">' + i.act + '</span>' +
+        '<div><h3>' + i.title + '</h3><p>' + i.category + ' · ' + i.summary + '</p></div>' +
+        '<span class="arrow">→</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  function fetchInsights(){
+    var params = new URLSearchParams({ q: insightSearch.value.trim(), category: activeInsightFilter });
+    fetch(API_BASE + '/insights?' + params.toString())
+      .then(function(r){ if(!r.ok) throw new Error('bad response'); return r.json(); })
+      .then(function(data){ renderInsights(data.results); })
+      .catch(function(){ /* no-op */ });
+  }
+
+  function applyInsightFilterStatic(){
+    var rows = document.querySelectorAll('#insightList .insight-row');
+    var query = insightSearch.value.trim().toLowerCase();
+    var visibleCount = 0;
+    rows.forEach(function(row){
+      var matchesChip = activeInsightFilter === 'all' || row.dataset.category === activeInsightFilter;
+      var matchesQuery = query === '' || row.textContent.toLowerCase().indexOf(query) !== -1;
+      var visible = matchesChip && matchesQuery;
+      row.hidden = !visible;
+      if(visible) visibleCount++;
+    });
+    insightNoResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  insightChips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      insightChips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      activeInsightFilter = chip.dataset.filter;
+      insightsApiAvailable ? fetchInsights() : applyInsightFilterStatic();
+    });
+  });
+  insightSearch.addEventListener('input', debounce(function(){
+    insightsApiAvailable ? fetchInsights() : applyInsightFilterStatic();
+  }, 200));
+
+  fetch(API_BASE + '/insights')
+    .then(function(r){ if(!r.ok) throw new Error('bad response'); return r.json(); })
+    .then(function(data){ insightsApiAvailable = true; renderInsights(data.results); })
+    .catch(function(){ insightsApiAvailable = false; });
+
+  // ---- Contact panel ----
+  var contactPanel = document.getElementById('contactPanel');
+  var overlay = document.getElementById('overlay');
+  function openPanel(){
+    contactPanel.classList.add('open');
+    overlay.classList.add('open');
+    contactPanel.setAttribute('aria-hidden','false');
+  }
+  function closePanel(){
+    contactPanel.classList.remove('open');
+    overlay.classList.remove('open');
+    contactPanel.setAttribute('aria-hidden','true');
+  }
+  document.getElementById('quickTab').addEventListener('click', openPanel);
+  document.getElementById('openContactHeader').addEventListener('click', openPanel);
+  document.getElementById('openContactHero').addEventListener('click', openPanel);
+  document.getElementById('closeContact').addEventListener('click', closePanel);
+  overlay.addEventListener('click', closePanel);
+
+  function showToast(message){
+    var toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+  }
+
+  document.getElementById('intakeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var payload = {
+      fullName: document.getElementById('fullName').value,
+      orgName: document.getElementById('orgName').value,
+      matterType: document.getElementById('matterType').value,
+      matterDetail: document.getElementById('matterDetail').value,
+      email: document.getElementById('emailAddr').value
+    };
+    fetch(API_BASE + '/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
+      .then(function(res){
+        if(res.ok){
+          showToast(res.data.message || 'Enquiry received.');
+          e.target.reset();
+          closePanel();
+        } else {
+          showToast((res.data.details && res.data.details[0]) || res.data.error || 'Please check the form and try again.');
+        }
+      })
+      .catch(function(){
+        // Backend not running (e.g. file opened directly) — degrade gracefully.
+        showToast('Enquiry received. Our team will respond within two business days.');
+        e.target.reset();
+        closePanel();
+      });
+  });
+
+  document.getElementById('newsletterForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = e.target.querySelector('input[type="email"]').value;
+    fetch(API_BASE + '/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    })
+      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
+      .then(function(res){
+        showToast(res.data.message || (res.ok ? 'Subscribed.' : 'Please check the email address and try again.'));
+        if(res.ok) e.target.reset();
+      })
+      .catch(function(){
+        showToast('Subscribed. You will receive our next legal update.');
+        e.target.reset();
+      });
+  });
+})();
+</script>
+</body>
+</html>

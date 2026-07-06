@@ -1,0 +1,26 @@
+[
+  {
+    "id": "grp-lawyers",
+    "category": "Our Lawyers",
+    "title": "Corporate & Advisory Practice",
+    "summary": "Transactional counsel for entities operating across PNG's regulated industries."
+  },
+  {
+    "id": "grp-consultants",
+    "category": "Our Consultants",
+    "title": "Independent Legal Consultants",
+    "summary": "Specialist advisers engaged for complex, sector-specific mandates."
+  },
+  {
+    "id": "grp-public-sector",
+    "category": "Public Sector Specialists",
+    "title": "Government & Statutory Bodies",
+    "summary": "Advisers embedded in the practice of public administration and governance law."
+  },
+  {
+    "id": "grp-litigation",
+    "category": "Litigation Teams",
+    "title": "Disputes & Courtroom Advocacy",
+    "summary": "Trial-ready teams across the National and Supreme Court registries."
+  }
+]

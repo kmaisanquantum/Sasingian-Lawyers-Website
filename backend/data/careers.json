@@ -1,0 +1,13 @@
+{
+  "pathways": [
+    { "id": "path-legal", "title": "Legal Professionals" },
+    { "id": "path-prosecution", "title": "Prosecution Clerks" },
+    { "id": "path-graduate", "title": "Graduate Program" },
+    { "id": "path-advisory", "title": "Business Advisory Services" }
+  ],
+  "vacancies": [
+    { "id": "vac-1", "title": "Associate — Disputes & Commercial Litigation", "location": "Port Moresby, NCD", "type": "Full-time", "posted": "2026-06-02" },
+    { "id": "vac-2", "title": "Graduate Program — 2027 Intake", "location": "Port Moresby, NCD", "type": "Graduate", "posted": "2026-06-18" },
+    { "id": "vac-3", "title": "Prosecution Clerk", "location": "Port Moresby, NCD", "type": "Full-time", "posted": "2026-05-27" }
+  ]
+}
