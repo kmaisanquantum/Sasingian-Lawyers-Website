@@ -1,7 +1,18 @@
-FROM node:20-slim
+# Use Node.js 22 as the base
+FROM node:22-alpine
+
+# Set the working directory
 WORKDIR /app
-COPY backend/package*.json ./backend/
-RUN cd backend && npm install
+
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy the rest of the application code
 COPY . .
-EXPOSE 4000
-CMD ["node", "backend/server.js"]
+
+# Run the build command
+RUN npm run build
+
+# Start the application
+CMD ["npm", "run", "start"]
